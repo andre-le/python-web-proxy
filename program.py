@@ -9,6 +9,7 @@ import sys # In order to terminate the program
 import thread
 
 ip = ''
+port_number = 1234
 
 def proxy_thread(connectionSocket, addr):
 	try:
@@ -47,8 +48,6 @@ def proxy_thread(connectionSocket, addr):
 
 		print "Connect to:", webserver, port
 
-		#URL filter goes here
-
 		#Proxy to server
     	# create a socket to connect to the web server
 		s = socket(AF_INET, SOCK_STREAM)
@@ -80,7 +79,7 @@ def main():
 
 	serverSocket = socket(AF_INET, SOCK_STREAM)
 	#Prepare a server socket
-	serverSocket.bind((ip, 1234))
+	serverSocket.bind((ip, port_number))
 	serverSocket.listen(5)
 
 	while True:
